@@ -15,5 +15,6 @@ public interface IUserService {
     User addUser (User user);
     void removeUser (Integer id);
     PagingResponse get3(Specification<User> spec, HttpHeaders headers, Sort sort);
+    public void updatePassword(Integer userId, String newPassword);
 
 }

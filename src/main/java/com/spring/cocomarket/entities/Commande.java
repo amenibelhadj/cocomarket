@@ -19,9 +19,6 @@ public class Commande implements java.io.Serializable{
     private float amount;
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
-    @OneToOne
-    @ToString.Exclude
-    private Panier panier;
     @OneToOne(mappedBy="commande")
     @ToString.Exclude
     private Facture facture;

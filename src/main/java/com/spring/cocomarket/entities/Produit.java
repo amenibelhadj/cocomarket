@@ -27,10 +27,7 @@ public class Produit implements java.io.Serializable{
     @JsonIgnore
     @ToString.Exclude
     private Set<Boutique> boutiques;
-    @ManyToMany(mappedBy="produits",cascade =CascadeType.ALL)
-    @JsonIgnore
-    @ToString.Exclude
-    private Set<Panier>paniers;
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JsonIgnore
     @ToString.Exclude

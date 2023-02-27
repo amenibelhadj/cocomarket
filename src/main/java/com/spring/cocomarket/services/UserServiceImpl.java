@@ -1,5 +1,6 @@
 package com.spring.cocomarket.services;
 
+import com.spring.cocomarket.authentication.UserNotFoundException;
 import com.spring.cocomarket.entities.User;
 import com.spring.cocomarket.interfaces.IUserService;
 import com.spring.cocomarket.repositories.UserRepository;
@@ -19,6 +20,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+
+import static com.spring.cocomarket.entities.Role.BUYER;
 
 @Slf4j
 @Service
@@ -64,6 +68,7 @@ public class UserServiceImpl implements IUserService {
             return null;
         }
         System.out.print("Account successfully created");
+
         return ur.save(user);
     }
     @Override
@@ -76,7 +81,7 @@ public class UserServiceImpl implements IUserService {
         ur.deleteById(id);
     }
 
-    //PAGINATION FILTRE ET TRI
+    ///////////////////PAGINATION FILTRE ET TRI////////////////
     public PagingResponse get3(Specification<User> spec, HttpHeaders headers, Sort sort) {
         if (isRequestPaged(headers)) {
             return get(spec, buildPageRequest(headers, sort));
@@ -103,6 +108,16 @@ public class UserServiceImpl implements IUserService {
         return new PagingResponse(page.getTotalElements(), (long) page.getNumber(), (long) page.getNumberOfElements(), pageable.getOffset(), (long) page.getTotalPages(), content);
     }
 
-
+    ////////////reset password ////////////////////
+    public void updatePassword(Integer userId, String newPassword) {
+        Optional<User> userOptional = ur.findById(userId);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            user.setPassword(newPassword);
+            ur.save(user);
+        } else {
+            throw new UserNotFoundException("User not found");
+        }
+    }
 
 }

@@ -38,7 +38,9 @@ public class User implements java.io.Serializable, UserDetails {
     private String password;
     private String company;
     private String address;
-    private String logo;
+    @Lob
+    @Column(columnDefinition = "BLOB")
+    private byte[] logo;
     private Integer fidelity;
     @Enumerated(EnumType.STRING)
     private Role role;

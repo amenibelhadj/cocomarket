@@ -52,6 +52,8 @@ public class AuthenticationService {
                     .email(request.getEmail())
                     .password(passwordEncoder.encode(request.getPassword()))
                     .role(SELLER)
+                    .address(request.getAddress())
+                    .company(request.getCompany())
                     .build();
             repository.save(user);
         }
@@ -62,6 +64,8 @@ public class AuthenticationService {
                     .email(request.getEmail())
                     .password(passwordEncoder.encode(request.getPassword()))
                     .role(ADMIN)
+                    .address("Tunisie")
+                    .company("CocoMarket")
                     .build();
             repository.save(user);
         }
@@ -72,6 +76,8 @@ public class AuthenticationService {
                     .email(request.getEmail())
                     .password(passwordEncoder.encode(request.getPassword()))
                     .role(MODERATOR)
+                    .address("Tunisie")
+                    .company("CocoMarket")
                     .build();
             repository.save(user);
         }
@@ -82,6 +88,8 @@ public class AuthenticationService {
                     .email(request.getEmail())
                     .password(passwordEncoder.encode(request.getPassword()))
                     .role(PROVIDER)
+                    .address(request.getAddress())
+                    .company(request.getCompany())
                     .build();
             repository.save(user);
         }
