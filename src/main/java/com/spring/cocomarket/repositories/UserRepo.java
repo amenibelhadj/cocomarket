@@ -1,11 +1,13 @@
 package com.spring.cocomarket.repositories;
 
+import com.spring.cocomarket.entities.SAV;
 import com.spring.cocomarket.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.transaction.annotation.Transactional;
 
-@EnableJpaRepositories
+public interface UserRepo  extends JpaRepository<User, Integer> {
+    /*User findByFirstname (String firstname);
 
-public interface UserRepo extends JpaRepository<User, Integer>  {
-
+    @Transactional
+    Long deleteByUsername(String firstname);*/
 }

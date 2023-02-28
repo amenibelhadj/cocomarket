@@ -5,6 +5,10 @@ import org.springframework.context.annotation.Configuration;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
+import org.springframework.messaging.simp.stomp.StompSession;
+import org.springframework.messaging.simp.stomp.StompSessionHandler;
+import org.springframework.web.socket.client.WebSocketClient;
+import org.springframework.web.socket.messaging.WebSocketStompClient;
 
 @Configuration
 public class OpenAPIConfig {
@@ -24,4 +28,6 @@ public class OpenAPIConfig {
                 .url("https://www.linkedin.com/in/**********/");
         return contact;
     }
+
+
 }

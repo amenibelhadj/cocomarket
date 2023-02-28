@@ -27,6 +27,8 @@ public class User implements java.io.Serializable {
     private String address;
     private String logo;
     private Integer fidelity;
+    @Column(name = "connected", nullable = false)
+    private Boolean connected = false;
     @Enumerated(EnumType.STRING)
     private Role role;
     @ManyToMany(cascade = CascadeType.ALL)
@@ -47,4 +49,7 @@ public class User implements java.io.Serializable {
     @JsonIgnore
     @ToString.Exclude
     private Set<Commande> commandes;*/
+
+
+
 }

@@ -17,10 +17,10 @@ public class Catalogue implements java.io.Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private LocalDate dateEdition;
-    private String lien;
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JsonIgnore
+    private LocalDate dateCreation;
+    private String name ;
+
+    @OneToMany(cascade = CascadeType.ALL)
     @ToString.Exclude
     private Set<Produit> produits;
 }

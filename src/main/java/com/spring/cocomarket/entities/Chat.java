@@ -16,7 +16,10 @@ public class Chat implements java.io.Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String message;
+    private String sender;
     private LocalDate date;
+    private MessageType type;
+
     @ManyToOne
     @ToString.Exclude
     ChatBox chatBox;

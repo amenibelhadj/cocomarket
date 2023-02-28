@@ -2,15 +2,10 @@
 package com.spring.cocomarket.controllers;
 
 import com.spring.cocomarket.entities.Promotion;
-import com.spring.cocomarket.entities.SAV;
-import com.spring.cocomarket.entities.Stock;
-import com.spring.cocomarket.repositories.PromotionRepo;
-import com.spring.cocomarket.repositories.StockRepo;
 import com.spring.cocomarket.services.PromotionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import org.webjars.NotFoundException;
 
 import java.util.List;
 

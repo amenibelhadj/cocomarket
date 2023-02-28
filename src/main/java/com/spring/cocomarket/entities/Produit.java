@@ -21,6 +21,8 @@ public class Produit implements java.io.Serializable{
     private String description;
     private float price;
     private String color;
+    private boolean promotion = false ;
+
     @Enumerated(EnumType.STRING)
     private ProductStatus status;
     @ManyToMany(cascade = CascadeType.ALL)
@@ -37,10 +39,10 @@ public class Produit implements java.io.Serializable{
     @ToString.Exclude
     private Set<Stock> stocks;
 
-    @ManyToMany(mappedBy="produits",cascade =CascadeType.ALL)
+    @ManyToOne
     @JsonIgnore
     @ToString.Exclude
-    private Set<Catalogue> catalogues;
+    Catalogue catalogue;
     @ManyToOne
     @ToString.Exclude
     Categorie categorie;
