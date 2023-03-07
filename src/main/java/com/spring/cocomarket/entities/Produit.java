@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -24,14 +25,16 @@ public class Produit implements Serializable {
     private String color;
     @Enumerated(EnumType.STRING)
     private ProductStatus status;
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JsonIgnore
     @ToString.Exclude
     private Set<Boutique> boutiques;
+    /*
     @ManyToMany(mappedBy="produits",cascade =CascadeType.ALL)
     @JsonIgnore
     @ToString.Exclude
-    private Set<Panier>paniers;
+    private Set<Panier>paniers;*/
     @ManyToMany(cascade = CascadeType.ALL)
     @JsonIgnore
     @ToString.Exclude
@@ -47,4 +50,7 @@ public class Produit implements Serializable {
     @JsonIgnore
     @ToString.Exclude
     private Set<Promotion> promotions; */
+
+    @OneToMany(mappedBy="produit",fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<LigneCommande> lignesCommande;
 }
